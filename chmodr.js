@@ -90,10 +90,12 @@ const chmodrSync = (p, mode) => {
     throw er
   }
 
+  fs.chmodSync(p, dirMode(mode))
+
   if (children.length)
     children.forEach(child => chmodrKidSync(p, child, mode))
 
-  return fs.chmodSync(p, dirMode(mode))
+  return
 }
 
 module.exports = chmodr
